@@ -1,5 +1,5 @@
 // Your code goes here
-alert("you get 20 clicks. Use them wisely")
+
 let totalClicks = 0
 
 var theBody = document.querySelector('body')
@@ -20,6 +20,10 @@ theBody.addEventListener('click',
         }
     }
 )
+
+window.addEventListener('scroll',(event)=>{
+  console.log("you scrolled")
+})
 
 header.addEventListener('dblclick',
     () => {
@@ -68,12 +72,6 @@ bus.addEventListener(
             n *= -1
         }
     )
-    // bus.addEventListener(
-    // 'ondrag',
-    // () => {
-    //     bus.style.transform ="rotateY(180deg)"
-    // }
-    // )
 
 let images = document.querySelectorAll("section img")
 
@@ -95,20 +93,52 @@ for (var i = 0; i < images.length; i++) {
     )
 }
 
-// for (var i = 0; i < images.length; i++) {
+window.addEventListener('keypress',(event)=> {alert(event.charCode + " was pressed")})
 
-//   images[i].addEventListener(
-//       'click',
-//       function() {
-//           if (clickCount > 0) {
-//               this.style.opacity = "0%"
-//               this.style.transition = "opacity .5s"
-//               console.log(images[i])
-//           } else {
-//               this.style.opacity = "100%"
-//               this.style.transition = "opacity .5s"
-//           }
-//           clickCount *= -1
-//       }
-//   )
-// }
+let h2all = document.querySelectorAll("h2")
+
+for (var i = 0; i < h2all.length; i++) {
+
+  h2all[i].addEventListener(
+        'select',
+        function() {
+            console.log(this.style)
+            this.style.color = "green"
+            if (this.style.opacity === "1") {
+                this.style.opacity = "0%"
+                this.style.transition = "opacity .5s"
+                console.log(images[i])
+            } else {
+                this.style.opacity = "100%"
+                this.style.transition = "opacity .5s"
+            }
+        }
+    )
+}
+
+window.addEventListener('load',(event)=>{
+  alert("you get 20 clicks. Use them wisely")
+
+})
+
+let footer = document.querySelector('footer')
+footer.addEventListener("dblclick",()=>{
+  footer.innerHTML="Access Denied"
+  footer.style.backgroundColor = "red"
+  footer.style.color = "white"
+  footer.style.fontSize = "3rem"
+  footer.style.textAlign = "center"
+  footer.style.padding = "15px 0 15px 0"
+
+})
+
+secondbtn.addEventListener('click', function (event) {
+let alice = document.createElement("iframe")
+alice.setAttribute('src','https://www.youtube.com/embed/AqIehvpdAPI')
+console.log(alice)
+theBody.appendChild(alice)
+
+})
+
+// Can I put all this in an iframe object straight away at once?
+{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/AqIehvpdAPI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
